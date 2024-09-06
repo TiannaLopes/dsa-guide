@@ -1,15 +1,16 @@
 // app/topics/[topic]/page.tsx
 
-"use client";  // Add this directive at the top of the file
+export async function generateStaticParams() {
+  const topics = ['arrays', 'linked-lists', 'trees', 'sorting', 'searching'];
 
-import { useParams } from "next/navigation";
+  return topics.map((topic) => ({
+    topic,
+  }));
+}
 
-// Component to render content for each topic
-const Topic = () => {
-  const params = useParams(); // Use next/navigation to get the dynamic parameters
-  const topic = params?.topic as string; // Extract the 'topic' parameter from the URL
+export default function Topic({ params }: { params: { topic: string } }) {
+  const { topic } = params;
 
-  // Static content for each topic
   const topics: Record<string, string> = {
     arrays: 'Arrays are a fundamental data structure...',
     'linked-lists': 'Linked Lists are a sequence of elements...',
@@ -18,7 +19,7 @@ const Topic = () => {
     searching: 'Searching algorithms include Binary Search, Linear Search, etc...',
   };
 
-  const content = topics[topic] || 'Topic not found'; // Get the content based on the topic
+  const content = topics[topic] || 'Topic not found';
 
   return (
     <div>
@@ -26,6 +27,4 @@ const Topic = () => {
       <p>{content}</p>
     </div>
   );
-};
-
-export default Topic;
+}
