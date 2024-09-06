@@ -16,19 +16,19 @@ export default function Home() {
       <div className="container mx-auto p-8">
         {/* Banner Image */}
         <div className="mb-8">
-          {/* <Image
+          <Image
   src="/images/banner.jpg"
   alt="Banner Image"
   width={700}
             height={200}
             priority
   className="rounded-lg shadow-lg"
-          /> */}
-          <img
+          />
+          {/* <img
             src="/public/images/banner.jpg"
             alt="Banner Image"
             style={{ width: "100%", height: "auto" }}
-          />
+          /> */}
         </div>
 
         <h1 className="text-4xl font-bold mb-8 text-center">
