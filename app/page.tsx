@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import SearchComponent from './components/SearchComponent';
-
+import SearchComponent from './components/SearchComponent'; 
 
 type Topic = {
   title: string;
@@ -43,6 +42,7 @@ export default function Home() {
 
   // Convert topics into a searchable list of titles
   const topicList = Object.entries(topics).map(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ([key, topic]) => `${topic.title}`
   );
 
@@ -63,14 +63,14 @@ export default function Home() {
 
       <ul className="list-disc pl-5 space-y-4 mt-6">
         {filteredTopics.map((title) => {
-          const [key, topic] = Object.entries(topics).find(
+          const [_key, topic] = Object.entries(topics).find(
             ([, t]) => t.title === title
-          )!;
+          )!; // Using _key to avoid ESLint warning
 
           return (
-            <li key={key}>
+            <li key={_key}>
               <a
-                href={`/topics/${key}`}
+                href={`/topics/${_key}`}
                 className="text-blue-500 hover:underline"
               >
                 {topic.title}
