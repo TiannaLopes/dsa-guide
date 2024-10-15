@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import SearchComponent from "../components/SearchComponent";
+import SearchComponent from './components/SearchComponent';
+
 
 type Topic = {
   title: string;
