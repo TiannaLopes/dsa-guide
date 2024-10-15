@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
-import AnalyticsWrapper from "./AnalyticsWrapper"; 
+"use client";
 
-export const metadata: Metadata = {
-  title: "DSA Guide",
-  description: "Learn Data Structures and Algorithms",
-};
+import AnalyticsWrapper from "./AnalyticsWrapper";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body>
         <AnalyticsWrapper>{children}</AnalyticsWrapper>
       </body>
     </html>
