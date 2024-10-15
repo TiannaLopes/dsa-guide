@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import SearchComponent from "../components/SearchComponent";
+
 type Topic = {
   title: string;
   description: string;
@@ -37,18 +40,44 @@ export default function Home() {
     },
   };
 
+  // Convert topics into a searchable list of titles
+  const topicList = Object.entries(topics).map(
+    ([key, topic]) => `${topic.title}`
+  );
+
+  // State to manage filtered topics
+  const [filteredTopics, setFilteredTopics] = useState<string[]>(topicList);
+
+  const handleSearch = (searchResults: string[]) => {
+    setFilteredTopics(searchResults);
+  };
+
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Welcome to DSA Guide</h1>
-      <ul className="list-disc pl-5 space-y-4">
-        {Object.entries(topics).map(([key, topic]) => (
-          <li key={key}>
-            <a href={`/topics/${key}`} className="text-blue-500 hover:underline">
-              {topic.title}
-            </a>
-            <p>{topic.description}</p>
-          </li>
-        ))}
+      <h1 className="text-4xl font-bold mb-8 text-center">
+        Welcome to DSA Guide
+      </h1>
+
+      <SearchComponent data={topicList} onSearch={handleSearch} />
+
+      <ul className="list-disc pl-5 space-y-4 mt-6">
+        {filteredTopics.map((title) => {
+          const [key, topic] = Object.entries(topics).find(
+            ([, t]) => t.title === title
+          )!;
+
+          return (
+            <li key={key}>
+              <a
+                href={`/topics/${key}`}
+                className="text-blue-500 hover:underline"
+              >
+                {topic.title}
+              </a>
+              <p>{topic.description}</p>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
