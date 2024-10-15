@@ -1,0 +1,22 @@
+{
+  "arrays": {
+    "title": "Arrays",
+    "description": "Arrays are a fundamental data structure that store elements at contiguous memory locations."
+  },
+  "linked-lists": {
+    "title": "Linked Lists",
+    "description": "Linked Lists are a sequence of elements where each element points to the next, allowing for efficient insertions and deletions."
+  },
+  "trees": {
+    "title": "Trees",
+    "description": "Trees are a hierarchical data structure used to represent hierarchical relationships."
+  },
+  "sorting": {
+    "title": "Sorting Algorithms",
+    "description": "Sorting algorithms arrange the elements of a list in a specific order (e.g., ascending or descending)."
+  },
+  "searching": {
+    "title": "Searching Algorithms",
+    "description": "Searching algorithms are used to find specific elements in data structures like arrays or trees."
+  }
+}

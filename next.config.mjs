@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/dsa-guide",
-  assetPrefix: "/dsa-guide/"
+  basePath: process.env.NODE_ENV === "production" ? "/dsa-guide" : "", // Conditional basePath
+  assetPrefix: process.env.NODE_ENV === "production" ? "/dsa-guide/" : "",
+  trailingSlash: true
 };
 
 export default nextConfig;

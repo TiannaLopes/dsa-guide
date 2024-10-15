@@ -1,36 +1,16 @@
-// app/layout.tsx
-
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900"
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900"
-});
+import AnalyticsWrapper from "./AnalyticsWrapper"; 
 
 export const metadata: Metadata = {
   title: "DSA Guide",
-  description: "Learn Data Structures and Algorithms"
+  description: "Learn Data Structures and Algorithms",
 };
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="antialiased">
+        <AnalyticsWrapper>{children}</AnalyticsWrapper>
       </body>
     </html>
   );

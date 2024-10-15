@@ -1,11 +1,7 @@
-// app/topics/[topic]/page.tsx
-
 export async function generateStaticParams() {
   const topics = ["arrays", "linked-lists", "trees", "sorting", "searching"];
 
-  return topics.map((topic) => ({
-    topic
-  }));
+  return topics.map((topic) => ({ topic }));
 }
 
 export default function Topic({ params }: { params: { topic: string } }) {
@@ -16,15 +12,14 @@ export default function Topic({ params }: { params: { topic: string } }) {
     "linked-lists": "Linked Lists are a sequence of elements...",
     trees: "Trees are a hierarchical data structure...",
     sorting: "Sorting algorithms include Quick Sort, Merge Sort, etc...",
-    searching:
-      "Searching algorithms include Binary Search, Linear Search, etc..."
+    searching: "Searching algorithms include Binary Search, Linear Search, etc...",
   };
 
   const content = topics[topic] || "Topic not found";
 
   return (
     <div>
-      <h1>{topic}</h1>
+      <h1 className="text-2xl font-bold mb-4">{topic}</h1>
       <p>{content}</p>
     </div>
   );
